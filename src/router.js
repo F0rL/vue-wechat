@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Chat from './views/chat.vue'
+import AppHeader from './components/app-header'
+import AppTab from './components/app-tab'
+import AddressList from './views/addressList'
 
 Vue.use(Router)
 
@@ -8,16 +11,21 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      name: 'root',
+      components: {
+        header: AppHeader,
+        main: Chat,
+        tab: AppTab
+      }
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      path: '/addressList',
+      name: 'addressList',
+      components: {
+        header: AppHeader,
+        main: AddressList,
+        tab: AppTab
+      }
     }
   ]
 })
