@@ -4,9 +4,11 @@
       <p>微信</p>
     </div>
     <div class="header-icon">
-      <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-search"></use>
-      </svg>
+      <router-link to="/search">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-search"></use>
+        </svg>
+      </router-link>
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-add"></use>
       </svg>
@@ -38,8 +40,11 @@
     > .header-icon {
       margin-right: 1rem;
     }
-    > .header-icon > .icon:first-child {
-      margin-right: 3rem;
+    > .header-icon .icon:first-child {
+      padding: 1rem;
+    }
+    > .header-icon .icon:not(:first-child) {
+      padding: 1rem;
     }
   }
 

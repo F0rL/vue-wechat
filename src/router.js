@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Chat from './views/chat.vue'
+import ChatSearch from './views/chatSearch.vue'
+import ChatRoom from './views/chatRoom.vue'
 import AppHeader from './components/app-header'
 import AppTab from './components/app-tab'
 import AddressList from './views/addressList'
@@ -16,6 +18,20 @@ export default new Router({
         header: AppHeader,
         main: Chat,
         tab: AppTab
+      }
+    },
+    {
+      path: '/search',
+      name: 'chatSearch',
+      components: {
+        default: ChatSearch
+      }
+    },
+    {
+      path: '/chatroom',
+      name: 'chatroom',
+      components: {
+        default: ChatRoom
       }
     },
     {

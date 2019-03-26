@@ -1,8 +1,11 @@
 <template>
-  <div id="app">
+  <div id="app" v-cloak>
     <router-view name="header"></router-view>
-    <router-view name="main"></router-view>
+    <keep-alive>
+      <router-view name="main"></router-view>
+    </keep-alive>
     <router-view name="tab"></router-view>
+    <router-view></router-view>
   </div>
 </template>
 <style lang="scss">
@@ -22,5 +25,8 @@
   }
   ul, li {
     list-style: none;
+  }
+  [v-cloak] {
+    display: none;
   }
 </style>

@@ -1,93 +1,40 @@
 <template>
   <ul class="chat">
-    <li class="chat-item">
-      <img src="https://source.unsplash.com/random/50x50" alt="">
-      <div class="chat-words">
-        <p class="chat-name">关羽</p>
-        <p class="chat-content">大声道发发送大神的飞洒的方式大发送到发送到发送到发送大神东方闪电发</p>
-        <span>昨天</span>
-      </div>
-    </li>
-    <li class="chat-item">
-      <img src="https://source.unsplash.com/random/50x50" alt="">
-      <div class="chat-words">
-        <p class="chat-name">关羽</p>
-        <p class="chat-content">大声道发发送大神的飞洒的方式大发送到发送到发送到发送大神东方闪电发</p>
-        <span>昨天</span>
-      </div>
-    </li>
-    <li class="chat-item">
-      <img src="https://source.unsplash.com/random/50x50" alt="">
-      <div class="chat-words">
-        <p class="chat-name">关羽</p>
-        <p class="chat-content">大声道发发送大神的飞洒的方式大发送到发送到发送到发送大神东方闪电发</p>
-        <span>昨天</span>
-      </div>
-    </li>
-    <li class="chat-item">
-      <img src="https://source.unsplash.com/random/50x50" alt="">
-      <div class="chat-words">
-        <p class="chat-name">关羽</p>
-        <p class="chat-content">大声道发发送大神的飞洒的方式大发送到发送到发送到发送大神东方闪电发</p>
-        <span>昨天</span>
-      </div>
-    </li>    <li class="chat-item">
-    <img src="https://source.unsplash.com/random/50x50" alt="">
-    <div class="chat-words">
-      <p class="chat-name">关羽</p>
-      <p class="chat-content">大声道发发送大神的飞洒的方式大发送到发送到发送到发送大神东方闪电发</p>
-      <span>昨天</span>
-    </div>
-  </li>    <li class="chat-item">
-    <img src="https://source.unsplash.com/random/50x50" alt="">
-    <div class="chat-words">
-      <p class="chat-name">关羽</p>
-      <p class="chat-content">大声道发发送大神的飞洒的方式大发送到发送到发送到发送大神东方闪电发</p>
-      <span>昨天</span>
-    </div>
-  </li>    <li class="chat-item">
-    <img src="https://source.unsplash.com/random/50x50" alt="">
-    <div class="chat-words">
-      <p class="chat-name">关羽</p>
-      <p class="chat-content">大声道发发送大神的飞洒的方式大发送到发送到发送到发送大神东方闪电发</p>
-      <span>昨天</span>
-    </div>
-  </li>    <li class="chat-item">
-    <img src="https://source.unsplash.com/random/50x50" alt="">
-    <div class="chat-words">
-      <p class="chat-name">关羽</p>
-      <p class="chat-content">大声道发发送大神的飞洒的方式大发送到发送到发送到发送大神东方闪电发</p>
-      <span>昨天</span>
-    </div>
-  </li>    <li class="chat-item">
-    <img src="https://source.unsplash.com/random/50x50" alt="">
-    <div class="chat-words">
-      <p class="chat-name">关羽</p>
-      <p class="chat-content">大声道发发送大神的飞洒的方式大发送到发送到发送到发送大神东方闪电发</p>
-      <span>昨天</span>
-    </div>
-  </li>    <li class="chat-item">
-    <img src="https://source.unsplash.com/random/50x50" alt="">
-    <div class="chat-words">
-      <p class="chat-name">关羽</p>
-      <p class="chat-content">大声道发发送大神的飞洒的方式大发送到发送到发送到发送大神东方闪电发</p>
-      <span>昨天</span>
-    </div>
-  </li>
-
-
-
-
-
-
+      <li class="chat-container" v-for="list in lists" :key="list.id">
+        <router-link :to="{name:'chatroom',params:{userName: list.name,userContent: list.content}}" class="chat-item">
+          <img src="@/assets/avatar/1.jpg" alt="">
+          <div class="chat-words">
+            <p class="chat-name">{{list.name}}</p>
+            <p class="chat-content">{{list.content}}</p>
+            <span>{{list.time}}</span>
+          </div>
+         </router-link>
+      </li>
   </ul>
 </template>
 
 <script>
 // @ is an alias to /src
+import axios from 'axios'
+import url from '@/assets/api.js'
 
 export default {
   name: 'home',
+  data() {
+    return {
+      lists: null
+    }
+  },
+  created() {
+    this.getChat()
+  },
+  methods: {
+    getChat() {
+      axios.get(url.chat,{}).then(res => {
+        this.lists = res.data.lists
+      })
+    }
+  },
   components: {
   }
 }
@@ -107,6 +54,21 @@ export default {
     -webkit-overflow-scrolling: touch;
   }
 
+  .chat-container {
+    position: relative;
+  }
+
+  .chat-container:not(:last-child):after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -.7rem;
+    left: 4.2rem;;
+    right: -5rem;
+    height: 1px;
+    background: $font-color;
+  }
+
   .chat-item {
     position: relative;
     margin-top: 1rem;
@@ -114,28 +76,29 @@ export default {
     display: inline-flex;
     justify-content: space-between;
     align-items: center;
-    &:after {
+    &:not(:last-child):after {
       content: '';
       display: block;
       position: absolute;
       bottom: -.7rem;
       left: 4.2rem;;
-      width: 19rem;
+      right: -5rem;
       height: 1px;
       background: $font-color;
     }
-    > img {
+     img {
       width: 50px;
       height: 50px;
+      border-radius: 6px;
     }
-    > .chat-words {
+     .chat-words {
       margin-left: 1rem;
       width: 68vw;
-      > .chat-name {
+       .chat-name {
         font-size: 1.2rem;
         padding-bottom: 5px;
       }
-      > .chat-content {
+       .chat-content {
         color: $font-color;
         font-size: .9rem;
         white-space: nowrap;
