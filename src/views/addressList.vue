@@ -8,19 +8,19 @@
         </div>
         <div class="address-top-item">
           <img src="@/assets/logo/contact_add-friend-addgroup.png" alt="">
-          <p>新的朋友</p>
+          <p>群聊</p>
         </div>
         <div class="address-top-item">
           <img src="@/assets/logo/contact_top-tag.png" alt="">
-          <p>新的朋友</p>
+          <p>标签</p>
         </div>
         <div class="address-top-item">
           <img src="@/assets/logo/contact_top-offical.png" alt="">
-          <p>新的朋友</p>
+          <p>公众号</p>
         </div>
       </div>
       <mt-index-section :index="list.group" v-for="list in lists" :key="list.gid">
-        <mt-cell :title="listItem.name" class="address-index" v-for="listItem in list.info">
+        <mt-cell :title="listItem.name" class="address-index" v-for="listItem in list.info" :key="listItem.gid">
           <img slot="icon" src="@/assets/avatar/1.jpg" width="48" height="48">
         </mt-cell>
       </mt-index-section>
@@ -64,7 +64,7 @@
     display: none;
   }
   .address {
-    position: relative;
+    position: absolute;
     top: 4rem;
     height: calc(100vh - 8rem);
     width: 100%;
@@ -85,13 +85,13 @@
     }
   }
   .address-index {
-    margin: 1rem 0;
     > .mint-cell {
       margin-left: 1rem;
     }
   }
   img {
+    margin: 10px 0;
     height: 100%;
-    border-radius: 6px;
+    border-radius: 8px;
   }
 </style>

@@ -1,15 +1,17 @@
 <template>
   <div class="chatroom">
-    <chatroom-header/>
-    <div class="chatroom-container">
-      <div class="chatroom-message">
-        <img src="@/assets/avatar/1.jpg" alt="">
-        <div class="chatroom-get">
-          <p>{{$route.params.userContent}}</p>
+      <chatroom-header/>
+      <div class="chatroom-container">
+        <div class="chatroom-message">
+          <img src="@/assets/avatar/1.jpg" alt="">
+          <keep-alive>
+            <div class="chatroom-get">
+              <p>{{$route.params.userContent}}</p>
+            </div>
+          </keep-alive>
         </div>
       </div>
-    </div>
-    <chatroom-input/>
+      <chatroom-input/>
   </div>
 </template>
 <script>

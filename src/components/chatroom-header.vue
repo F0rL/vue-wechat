@@ -5,16 +5,31 @@
         <use xlink:href="#icon-back"></use>
       </svg>
     </router-link>
-    <span>{{$route.params.userName}}</span>
-    <svg class="icon" aria-hidden="true">
-      <use xlink:href="#icon-more"></use>
-    </svg>
+    <span>{{userName}}</span>
+    <router-link :to="{name: 'chatinfo', params: {userName: userName}}">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-more"></use>
+      </svg>
+    </router-link>
   </div>
 </template>
 
 <script>
   export default {
-    name: "chatroom-header"
+    name: "chatroom-header",
+    data() {
+      return {
+        userName: null,
+      }
+    },
+    mounted() {
+      this.getUserName()
+    },
+    methods: {
+      getUserName(){
+        this.userName = this.$route.params.userName
+      }
+    }
   }
 </script>
 
