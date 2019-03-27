@@ -20,7 +20,9 @@
         </div>
       </div>
       <mt-index-section :index="list.group" v-for="list in lists" :key="list.gid">
-        <mt-cell :title="listItem.name" class="address-index" v-for="listItem in list.info" :key="listItem.gid">
+        <mt-cell :title="listItem.name" class="address-index" v-for="listItem in list.info" :key="listItem.gid"
+          @click.native="goInfo(listItem)"
+        >
           <img slot="icon" src="@/assets/avatar/1.jpg" width="48" height="48">
         </mt-cell>
       </mt-index-section>
@@ -54,6 +56,9 @@
         axios.get(url.friendsList,{}).then(res => {
           this.lists = res.data.friends
         })
+      },
+      goInfo(listItem) {
+        this.$router.push({name: 'userinfo',params:{listItem}})
       }
     }
   }
@@ -81,6 +86,9 @@
       padding: .5rem 10px .5rem 10px;
       > p {
         margin-left: 1rem;
+      }
+      &:not(:last-child) {
+        border-bottom: 1px solid #DDD;
       }
     }
   }

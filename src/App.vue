@@ -8,7 +8,7 @@
     <router-view></router-view>
   </div>
 </template>
-<style lang="scss">
+<style>
   * {
     margin: 0;
     padding: 0;
@@ -28,5 +28,8 @@
   }
   [v-cloak] {
     display: none;
+  }
+  .mint-indexlist-navitem {
+    padding-top: 26px;
   }
 </style>

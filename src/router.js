@@ -7,7 +7,7 @@ import ChatRoom from './views/chatRoom.vue'
 import AppHeader from './components/app-header'
 import AppTab from './components/app-tab'
 import AddressList from './views/addressList'
-import chatInfo from "./views/chatInfo";
+import UserInfo from "./views/userInfo";
 
 Vue.use(Router)
 
@@ -37,7 +37,7 @@ export default new Router({
       }
     },
     {
-      path: '/userinfo',
+      path: '/chatinfo',
       name: 'chatinfo',
       components: {
         default: ChatInfo
@@ -51,6 +51,13 @@ export default new Router({
         main: AddressList,
         tab: AppTab
       }
-    }
+    },
+    {
+      path: '/userinfo',
+      name: 'userinfo',
+      components: {
+        default: UserInfo
+      }
+    },
   ]
 })
