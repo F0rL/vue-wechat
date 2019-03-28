@@ -84,7 +84,7 @@ export default {
       left: 4.2rem;;
       right: -5rem;
       height: 1px;
-      background: $font-color;
+      background: #f6f5f5;
     }
      img {
       width: 50px;

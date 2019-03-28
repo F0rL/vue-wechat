@@ -12,13 +12,13 @@
       </svg>
       <p>通讯录</p>
     </router-link>
-    <router-link to="/addressList" class="tab-item">
+    <router-link to="/find" class="tab-item">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-faxian"></use>
       </svg>
       <p>发现</p>
     </router-link>
-    <router-link to="/addressList" class="tab-item">
+    <router-link to="/me" class="tab-item">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-wode"></use>
       </svg>
@@ -29,7 +29,8 @@
 
 <script>
   export default {
-    name: "TabBar"
+    name: "TabBar",
+
   }
 </script>
 
@@ -44,7 +45,7 @@
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    background-color: #f6f5f5;
+    background-color: #EDEDED;
     > .tab-item {
       width: 20vw;
       > .icon {
@@ -55,6 +56,9 @@
         margin-top: 2px;
         font-size: .5rem;
       }
+    }
+    a.router-link-exact-active {
+      color: #85ef47;
     }
   }
 </style>

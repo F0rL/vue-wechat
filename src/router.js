@@ -8,6 +8,8 @@ import AppHeader from './components/app-header'
 import AppTab from './components/app-tab'
 import AddressList from './views/addressList'
 import UserInfo from "./views/userInfo";
+import find from "./views/find";
+import me from './views/me'
 
 Vue.use(Router)
 
@@ -57,6 +59,23 @@ export default new Router({
       name: 'userinfo',
       components: {
         default: UserInfo
+      }
+    },
+    {
+      path: '/find',
+      name: 'find',
+      components: {
+        header: AppHeader,
+        main: find,
+        tab: AppTab
+      }
+    },
+    {
+      path: '/me',
+      name: 'me',
+      components: {
+        main: me,
+        tab: AppTab
       }
     },
   ]

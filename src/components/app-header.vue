@@ -65,7 +65,7 @@
     justify-content: space-between;
     align-items: center;
     font-size: 1.2rem;
-    background-color: #f6f5f5;
+    background-color: #EDEDED;
     > .header-title {
       margin-left: 1rem;
     }
@@ -75,7 +75,7 @@
         padding: 1rem;
       }
       & .icon:not(:first-child) {
-        padding: 1rem;
+        padding: 1rem .5rem 1rem 1rem;
       }
     }
     > .header-toast {
