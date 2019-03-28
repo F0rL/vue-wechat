@@ -1,15 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Chat from './views/chat.vue'
-import ChatSearch from './views/chatSearch.vue'
-import ChatInfo from './views/chatInfo.vue'
-import ChatRoom from './views/chatRoom.vue'
+import Chat from './views/Chat.vue'
+import ChatSearch from './views/ChatSearch.vue'
+import ChatInfo from './views/ChatInfo.vue'
+import ChatRoom from './views/ChatRoom.vue'
 import AppHeader from './components/app-header'
 import AppTab from './components/app-tab'
-import AddressList from './views/addressList'
-import UserInfo from "./views/userInfo";
-import find from "./views/find";
-import me from './views/me'
+import AddressList from './views/AddressList'
+import UserInfo from "./views/UserInfo";
+import find from "./views/Find";
+import me from './views/Me'
 
 Vue.use(Router)
 
